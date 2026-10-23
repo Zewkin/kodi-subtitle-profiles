@@ -1,0 +1,50 @@
+--- a/1080i/VideoOSD.xml
++++ b/1080i/VideoOSD.xml
+@@ -31,7 +31,7 @@
+             </animation>
+             <!--fade out if audio / video menu active-->
+-            <animation type="Conditional" condition="Window.IsActive(osdsubtitlesettings) | Window.IsActive(seekbar) | Window.IsActive(osdvideosettings) | Window.IsActive(osdaudiosettings) | window.isactive(PVROSDChannels) | window.isactive(subtitlesearch)">
++            <animation type="Conditional" condition="Window.IsActive(osdsubtitlesettings) | Window.IsActive(seekbar) | Window.IsActive(osdvideosettings) | Window.IsActive(osdaudiosettings) | window.isactive(PVROSDChannels) | window.isactive(subtitlesearch) | !String.IsEmpty(Window(Home).Property(SubtitleProfiles.DialogOpen))">
+                 <effect type="fade" start="100" end="0" time="350"/>
+                 <effect type="slide" start="0" end="900" tween="cubic" easing="in" time="500"/>
+             </animation>
+--- a/1080i/DialogSettings.xml
++++ b/1080i/DialogSettings.xml
+@@ -14,7 +14,7 @@
+                 <posx>-12</posx>
+                 <posy>-12</posy>
+                 <width>1176</width>
+-                <height>768</height>
++                <height>852</height>
+@@ -23,7 +23,7 @@
+                 <posx>-12</posx>
+                 <posy>-12</posy>
+                 <width>1176</width>
+-                <height>768</height>
++                <height>852</height>
+@@ -57,8 +57,26 @@
+                 <height>654</height>
+                 <onright>9000</onright>
++                <onup condition="Window.IsActive(osdsubtitlesettings)">40</onup>
+                 <onup>5</onup>
++                <ondown condition="Window.IsActive(osdsubtitlesettings)">40</ondown>
+                 <ondown>5</ondown>
+             </control>
++            <!-- Subtitle Profiles menu item -->
++            <control type="button" id="40">
++                <visible>Window.IsActive(osdsubtitlesettings)</visible>
++                <posx>0</posx>
++                <posy>738</posy>
++                <width>12-col</width>
++                <height>2-row</height>
++                <label>Subtitle profiles</label>
++                <textoffsetx>24</textoffsetx>
++                <onup>5</onup>
++                <ondown>5</ondown>
++                <onright>9000</onright>
++                <onclick>Dialog.Close(osdsubtitlesettings,true)</onclick>
++                <onclick>RunScript(script.subtitle.profiles)</onclick>
++            </control>
+             <control type="button" id="7">
+                 <description>Default Button</description>
+             </control>

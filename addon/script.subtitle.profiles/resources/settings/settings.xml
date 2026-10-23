@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings version="1">
+  <section id="script.subtitle.profiles">
+    <category id="general" label="General">
+      <group id="1">
+        <setting id="notifications" type="boolean" label="Show automatic profile notifications" help="Show a notification when playback starts and a saved profile is applied.">
+          <default>true</default>
+          <control type="toggle"/>
+        </setting>
+        <setting id="debug_logging" type="boolean" label="Debug logging" help="Write additional diagnostic information without logging media paths or credentials.">
+          <default>false</default>
+          <control type="toggle"/>
+        </setting>
+      </group>
+    </category>
+  </section>
+</settings>

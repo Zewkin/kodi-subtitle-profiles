@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.subtitle.profiles" name="Subtitle Profiles" version="0.1.0" provider-name="Zewkin">
+  <requires>
+    <import addon="xbmc.python" version="3.0.1"/>
+  </requires>
+  <extension point="xbmc.python.script" library="default.py">
+    <provides>executable</provides>
+  </extension>
+  <extension point="xbmc.service" library="service.py" start="login"/>
+  <extension point="xbmc.addon.metadata">
+    <summary lang="en_GB">Persistent subtitle appearance profiles and path assignments</summary>
+    <description lang="en_GB">Create subtitle profiles, apply them live, and remember styles per file or directory.</description>
+    <platform>all</platform>
+    <license>MIT</license>
+    <source>https://github.com/Zewkin</source>
+  </extension>
+</addon>
